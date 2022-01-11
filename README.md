@@ -8,8 +8,7 @@
 - Java
 - Maven
 - JDK 11
-- Spring:
-  - Dependências: Data JPA, Lombok, Web, PostgreSQL Driver, Security, Model Mapper e Auth0
+- Dependências: Spring, Data JPA, Lombok, Web, PostgreSQL Driver, Security, Model Mapper e Auth0
 
 ### Softwares para desenvolvimento:
 - IntelliJ
@@ -21,10 +20,10 @@
 ### Divisão do código:
 O projeto foi estruturado em 4 camadas, sendo:
  
-- **entity:** definem as classes de modelo (*models*) e as sincronizam com o banco por meio dos decoradores do Spring.
-- **repository:** realizam a conexão e fazem as operações no banco de dados por meio de uma interface genérica. (Caso mude o banco, o restante do código não quebra).
-- **service:** é responsável pelas regras de negócio e faz as chamadas aos *repositories* que realizarão a persistência no banco.
-- **controller:** onde estão direcionadas as rotas, por onde chegam as requisições que recebe a entrada dos dados e chama o *service*. Caso tudo ocorra com o esperado, o resultado é retornado ao usuário.
+- **entities:** que definem as classes de modelo (*models*) e sincronizam com o banco por meio dos decoradores do Spring.
+- **repositories:** que realizam a conexão e fazem as operações no banco de dados por meio de uma interface genérica. (Caso mude o banco, o restante do código não quebra).
+- **services:** que são responsáveis pelas regras de negócio e realizam as chamadas aos *repositories* que realizarão a persistência no banco.
+- **controllers:** onde estão direcionadas as rotas, por onde chegam as requisições que recebe a entrada dos dados e chama os *services*. Caso tudo ocorra com o esperado, o resultado é retornado ao usuário.
 
 ![tqi-diagram](https://user-images.githubusercontent.com/86791739/148865644-c3694316-7fd7-4908-bf0b-7dba3ae6e52b.png)
 
@@ -44,7 +43,7 @@ Entrada:
   "password": "teste@123"
 }
 ```
-Saída (Número do Token Gerado):
+Saída (Exemplo de token gerado):
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2aW5pY2l1c0BlbWFpbC5jb20iLCJleHAiOjE2NDE4NDM3Njh9.00dW_qvqQ1KCuSQPMj3DC4GAEF4vs8HBkFiSVweSxS_gFh3IzsUzkxCXavrtQLQcdmVCUDPgSQlseKrsGjXqDA
 ```
