@@ -17,6 +17,12 @@
 
 ---
 
+### Configuração
+Para iniciar o container docker contendo o banco de dados, execute o seguinte comando (lembrar de verificar se o comando será executado no diretório onde o arquivo está): 
+```docker-compose up -d```
+
+---
+
 ### Divisão do código:
 O projeto foi estruturado em 4 camadas, sendo:
  
@@ -160,8 +166,4 @@ O relacionamento que está sendo feito é o @ManyToOne (decorador do Spring). Um
 
 ![er-diagram-tqi](https://user-images.githubusercontent.com/86791739/148865692-21c32441-1a1f-4c86-8c7a-454d803e7fa8.png)
 
----
-### Configuração
-Para iniciar o container docker contendo o banco de dados, execute o seguinte comando (lembrar de verificar se o comando será executado no diretório onde o arquivo está): 
-> docker-compose start 
 
