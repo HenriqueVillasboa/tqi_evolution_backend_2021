@@ -1,8 +1,8 @@
-##TQI Evolution 2022 - Backend
+## TQI Evolution 2022 - Backend
 
 ---
 
-###Tecnologias utilizadas:
+### Tecnologias utilizadas:
 - Docker
 - PostgreSQL
 - Java
@@ -11,14 +11,14 @@
 - Spring:
   - Dependências: Data JPA, Lombok, Web, PostgreSQL Driver, Security, Model Mapper e Auth0
 
-###Softwares para desenvolvimento:
+### Softwares para desenvolvimento:
 - IntelliJ
 - DBeaver
 - Postman
 
 ---
 
-###Divisão do código:
+### Divisão do código:
 O projeto foi estruturado em 4 camadas, sendo:
  
 - **entity:** definem as classes de modelo (*models*) e as sincronizam com o banco por meio dos decoradores do Spring.
@@ -26,14 +26,15 @@ O projeto foi estruturado em 4 camadas, sendo:
 - **service:** é responsável pelas regras de negócio e faz as chamadas aos *repositories* que realizarão a persistência no banco.
 - **controller:** onde estão direcionadas as rotas, por onde chegam as requisições que recebe a entrada dos dados e chama o *service*. Caso tudo ocorra com o esperado, o resultado é retornado ao usuário.
 
-![Diagram](C:\tqi-diagram.png)
+![tqi-diagram](https://user-images.githubusercontent.com/86791739/148865644-c3694316-7fd7-4908-bf0b-7dba3ae6e52b.png)
 
 ---
 
-###Rotas
+### Rotas
 **1. Autenticação**
 - Método: POST
 - Endpoint: /login
+- Tipo de Autorização: Bearer Token
 - Descrição: esta rota é responsável pela autenticação do cliente.
 
 Entrada:
@@ -144,18 +145,21 @@ Saída:
 Saída:
 ```
 {
-    "loanId": "d4873698-6e0d-468e-9730-815627cdbc5c",
-    "value": 14000.0,
-    "amountInstallments": 20,
-    "firstInstallmentDate": "2022-01-30T00:00:00.000+00:00",
-    "clientEmail": "vinicius@email.com",
-    "clientIncome": 4000.0
+    "loanId": "b95b2d95-08bb-4c47-8a80-f05e7d321fed",
+    "value": 15000.0,
+    "amountInstallments": 30,
+    "firstInstallmentDate": "2022-02-08T00:00:00.000+00:00",
+    "clientEmail": "nome@email.com",
+    "clientIncome": 2000.0
 }
 ```
 
 ---
 
-###Relacionamento 
+### Relacionamento 
 O relacionamento que está sendo feito é o @ManyToOne (decorador do Spring). Uma ou várias solicitações podem ser realizadas por apenas um cliente. Um cliente pode fazer uma ou várias solicitações. Quando um cliente realiza uma solicitação, o seu id é associado a coluna *client_entity_id* da tabela *loan_application*.
 
-![DER Diagram](C:\er-diagram-tqi.png)
+![er-diagram-tqi](https://user-images.githubusercontent.com/86791739/148865692-21c32441-1a1f-4c86-8c7a-454d803e7fa8.png)
+
+
+
